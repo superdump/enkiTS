@@ -1,0 +1,12 @@
+project('enkiTS', 'cpp')
+cpp_sources = [
+    'src/Atomics.h',
+    'src/LockLessMultiReadPipe.h',
+    'src/TaskScheduler.cpp',
+    'src/TaskScheduler.h',
+    'src/Threads.h'
+]
+i include_directories('src')
+l = static_library('enkiTS', cpp_sources)
+enki_dep = declare_dependency(include_directories: i,
+    link_with: l)
