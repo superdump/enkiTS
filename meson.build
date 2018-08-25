@@ -6,7 +6,9 @@ cpp_sources = [
     'src/TaskScheduler.h',
     'src/Threads.h'
 ]
-i include_directories('src')
-l = static_library('enkiTS', cpp_sources)
-enki_dep = declare_dependency(include_directories: i,
+thread_dep = dependency('threads')
+l = static_library('enkiTS', cpp_sources,
+    dependencies: thread_dep)
+i = include_directories('src')
+enkiTS_dep = declare_dependency(include_directories: i,
     link_with: l)
